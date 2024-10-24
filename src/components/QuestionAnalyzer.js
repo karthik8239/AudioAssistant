@@ -30,12 +30,11 @@ const QuestionAnalyzer = ({ transcript, onQuestionDetected }) => {
             detectQuestions();
         }, [transcript]);
 
-        return ( <
-            div > {
+        return ( <div> {
                 error && < p style = {
                     { color: 'red' } } > { error } < /p>} <
                 /div>
             );
-        };
+    };
 
-        export default QuestionAnalyzer;
+export default QuestionAnalyzer();

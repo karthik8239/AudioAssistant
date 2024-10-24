@@ -28,17 +28,13 @@ const AudioCapture = ({ onTranscribe }) => {
             resetTranscript();
         };
 
-        return ( <
-            div >
-            <
-            button onClick = { startListening }
-            disabled = { listening } > Start < /button> <
-            button onClick = { stopListening }
-            disabled = {!listening } > Stop < /button> <
-            p > Transcript: { transcript } < /p> {
-                error && < p style = {
-                        { color: 'red' } } > { error } < /p>} <
-                    /div>
+        return ( 
+        <div>
+            <button onClick = { startListening } disabled = {listening } > Start </button> 
+            <button onClick = { stopListening } disabled = {!listening } > Stop </button> 
+            <p> Transcript: { transcript } </p> { error && 
+            <p style = {{ color: 'red' } } > { error } < /p> } 
+            </div>
             );
         };
 
