@@ -5,18 +5,21 @@ import axios from 'axios';
 
 export const getSuggestedAnswer = async(question) => {
     try {
-        const docRef = ref(storage, 'gs://audio-medical-assistant-85c9e.appspot.com/medical-info.txt');
+        console.log("Fetching the document");
+        const docRef = ref(storage, 'gs://fir-medical-assistant-7689b.appspot.com/medical-info.txt');
         const url = await getDownloadURL(docRef);
+        console.log("Downloaded url obtained", url);
         try {
             /** Fetch the file content using Fetch API */
+            console.log("document fetching from the data");
             const response = await axios.get(url);
-
+            console.log("document fetched successfully: ", response.data);
             const documentText = response.data;
-
             const lines = documentText.split('\n');
-
+            console.log("Document lines split into array:", lines);
             const answer = lines.find(line => line.toLowerCase().includes(question.toLowerCase())) || "No answer found.";
-
+            console.log("Answer");
+            debugger;
             return answer;
         } catch (error) {
             console.error("Error reading document:", error);

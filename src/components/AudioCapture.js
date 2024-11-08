@@ -33,7 +33,9 @@ const AudioCapture = ({ onTranscribe }) => {
             <button onClick = { startListening } disabled = {listening } > Start </button> 
             <button onClick = { stopListening } disabled = {!listening } > Stop </button> 
             <p> Transcript: { transcript } </p> { error && 
-            <p style = {{ color: 'red' } } > { error } < /p> } 
+            <p style = {{ color: 'red' }}> 
+            { error } </p> 
+            } 
             </div>
             );
         };
