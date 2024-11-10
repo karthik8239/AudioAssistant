@@ -17,9 +17,21 @@ export const getSuggestedAnswer = async(question) => {
             const documentText = response.data;
             const lines = documentText.split('\n');
             console.log("Document lines split into array:", lines);
-            const answer = lines.find(line => line.toLowerCase().includes(question.toLowerCase())) || "No answer found.";
-            console.log("Answer");
-            debugger;
+            // const answer = lines.find(line => line.toLowerCase().includes(question.toLowerCase())) || "No answer found.";
+            const questionIndex = lines.findIndex(line => line.toLowerCase().includes(question.toLowerCase())); 
+            if(questionIndex === -1){
+                console.log("No matching answer is found");
+            }
+            let answerlines = [];
+            for(let i = questionIndex+1 ; i < lines.length; i++){
+                const currentLine = lines[i].trim();
+                if(currentLine.startsWith("-") || currentLine === ''){
+                    break;
+                }
+                answerlines.push(currentLine);
+            }
+            const answer = answerlines.join(' ').trim();
+            console.log(answer);
             return answer;
         } catch (error) {
             console.error("Error reading document:", error);
