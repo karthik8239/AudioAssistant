@@ -44,7 +44,7 @@ const QuestionAnalyzer = ({ transcript, onQuestionDetected }) => {
 
     return (
         <div>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {error && <p style={{ color: 'green' }}>{error}</p>}
             {/* {questions.length  > 0 && <p>Detected Question:{questions[0]}</p>} */}
         </div>
     );
