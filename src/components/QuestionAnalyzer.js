@@ -46,7 +46,7 @@ const QuestionAnalyzer = ({ transcript, onQuestionDetected }) => {
         <div>
             {error && <p style={{ color: 'green' }}>{error}</p>}
             {/* {questions.length  > 0 && <p>Detected Question:{questions[0]}</p>} */}
-            <button type="btn-primary">Click</button>
+            <button type="btn-primary">Submit</button>
         </div>
     );
 };
